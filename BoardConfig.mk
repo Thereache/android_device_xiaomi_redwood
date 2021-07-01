@@ -111,12 +111,10 @@ TARGET_KERNEL_CONFIG := vendor/lahaina-qgki_defconfig vendor/debugfs.config vend
 TARGET_KERNEL_CONFIG += vendor/redwood_QGKI.config
 
 BOARD_KERNEL_CMDLINE += \
-    androidboot.console=ttyMSM0 \
     androidboot.hardware=qcom \
     androidboot.init_fatal_reboot_target=recovery \
     androidboot.usbcontroller=a600000.dwc3 \
     cgroup.memory=nokmem,nosocket \
-    console=ttyMSM0,115200n8 \
     iptable_raw.raw_before_defrag=1 \
     ip6table_raw.raw_before_defrag=1 \
     kpti=off \
