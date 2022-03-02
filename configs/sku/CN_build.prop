@@ -7,4 +7,5 @@ ro.product.odm.manufacturer=Xiaomi
 ro.product.odm.model=22101320C
 ro.product.odm.name=redwood
 ro.product.odm.marketname=Redmi Note 12 Pro Speed
+vendor.usb.product_string=Redmi Note 12 Pro Speed
 # end sku build properties
