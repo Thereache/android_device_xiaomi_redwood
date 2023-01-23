@@ -665,4 +665,7 @@
 	
     <!-- Whether extended lockscreen battery info is enabled by default. -->
     <bool name="config_lockscreenBatteryInfo">true</bool>
+
+    <!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">false</bool>
 </resources>
