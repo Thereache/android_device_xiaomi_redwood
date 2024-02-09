@@ -64,6 +64,9 @@ TARGET_BOOTLOADER_BOARD_NAME := redwood
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
+# Camera - Miui
+TARGET_CAMERA_PACKAGE_NAME := com.android.camera
+
 # Display
 TARGET_SCREEN_DENSITY ?= 440
 
