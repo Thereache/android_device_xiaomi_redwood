@@ -241,7 +241,9 @@ PRODUCT_PACKAGES += \
      libsensor-ssccalapi \
      sensors \
      vendor.qti.hardware.display.composer-service \
-     vendor.xiaomi.sensor.citsensorservice@2.0-service
+     vendor.xiaomi.sensor.citsensorservice@2.0-service \
+     vendor.qti.bluetooth@1.0-ibs_handler \
+     vendor.qti.bluetooth@1.0-wake_lock
  
  ifneq ($(TARGET_BUILD_VARIANT),eng)
  PRODUCT_VENDOR_PROPERTIES += \
