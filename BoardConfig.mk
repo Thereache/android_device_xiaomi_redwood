@@ -4,6 +4,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/redwood
+KERNEL_PATH := device/xiaomi/redwood-kernel
 
 BOARD_VENDOR := xiaomi
 
@@ -98,10 +99,6 @@ BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
-TARGET_KERNEL_CLANG_VERSION := r563880c
-TARGET_KERNEL_SOURCE := kernel/xiaomi/redwood
-TARGET_KERNEL_CONFIG := vendor/lahaina-qgki_defconfig vendor/debugfs.config vendor/xiaomi_QGKI.config
-TARGET_KERNEL_CONFIG += vendor/redwood_QGKI.config
 
 BOARD_KERNEL_CMDLINE += \
     androidboot.hardware=qcom \
@@ -118,20 +115,12 @@ BOARD_KERNEL_CMDLINE += \
     service_locator.enable=1 \
     swiotlb=noforce
 
-# Kernel modules
-BOOT_KERNEL_MODULES := \
-    adsp_loader_dlkm.ko \
-    apr_dlkm.ko \
-    focaltech_touch.ko \
-    goodix_core.ko \
-    mmhardware_sysfs_dlkm.ko \
-    q6_notifier_dlkm.ko \
-    q6_pdr_dlkm.ko \
-    qti_battery_charger_main.ko \
-    snd_event_dlkm.ko \
-    xiaomi_touch.ko
-
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
+# Kernel Pre-compiled
+TARGET_NO_KERNEL_OVERRIDE := true
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
+BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
+BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtb
+BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE_DIR)/01_dtbdump_Qualcomm_Technologies,_Inc._Yupik_SoC.dtb
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
