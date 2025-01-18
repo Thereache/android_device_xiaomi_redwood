@@ -4,6 +4,9 @@ dalvik.vm.dex2oat64.enabled=true
 # Camera
 ro.camerax.extensions.enabled=true
 
+#  Camera
+vendor.camera.aux.packagelist=org.lineageos.aperture,com.android.camera,com.google.camera,com.snapchat.android
+
 # Disable Skia tracing by default
 debug.hwui.skia_atrace_enabled=false
 
