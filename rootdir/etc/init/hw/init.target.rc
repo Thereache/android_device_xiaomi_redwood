@@ -33,6 +33,7 @@ import /vendor/etc/init/hw/init.mi_thermald.rc
 import /vendor/etc/init/hw/init.batterysecret.rc
 
 on early-init
+    setprop ro.boot.hardware.revision ${ro.boot.hwc}_${ro.boot.hwlevel}_${ro.boot.hwversion}
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/vendor_modprobe.sh
     wait /sys/devices/soc0/soc_id
 
