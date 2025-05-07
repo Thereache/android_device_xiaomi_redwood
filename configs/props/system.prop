@@ -7,6 +7,9 @@ ro.audio.resampler.psd.cutoff_percent=98
 ro.audio.resampler.psd.tbwcheat=0
 ro.audio.usb.period_us=20375
 
+# Audio service timeout
+audio.service.client_wait_ms=10000
+
 # Bluetooth
 persist.vendor.btstack.enable.twsplus=true
 persist.vendor.btstack.enable.twsplussho=true
