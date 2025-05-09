@@ -56,6 +56,8 @@ persist.log.tag.TrafficStats=S
 persist.log.tag.SYNX-UMD=S
 persist.log.tag.CHIUSECASE=S
 persist.log.tag.OpenGLRenderer=S
+persist.log.tag.QC2Buf=W
+persist.log.tag.QC2V4l2Codec=E
 persist.log.tag.ResourcesCompat=S
 persist.log.tag.FastChargingPreferenceController=S
 
