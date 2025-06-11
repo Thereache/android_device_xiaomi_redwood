@@ -298,24 +298,30 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set_bool,stagefright,target_disable_thumbnail_block_model,true)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+PRODUCT_PACKAGES += \
+    ApertureOverlayRedwood \
+    CarrierConfigOverlayRedwood \
+    DialerOverlayRedwood \
+    LineageSDKOverlayRedwood \
+    TelephonyOverlayRedwood
+
+PRODUCT_PACKAGES += \
+    FrameworkOverlayRedwood \
+    NcmTetheringOverlay \
+    NfcOverlayRedwood \
+    SettingsOverlayRedwood \
+    SettingsProviderOverlayRedwood \
+    SettingsProviderOverlayRedwoodCN \
+    SettingsProviderOverlayRedwoodGL \
+    SettingsProviderOverlayRedwoodIN \
+    SimpleDeviceConfigOverlayRedwood \
+    SystemUIOverlayRedwood \
+    WifiOverlayRedwood \
+    WifiOverlayRedwoodCN \
+    WifiOverlayRedwoodGL \
+    WifiOverlayRedwoodIN
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-
-# Overlays-RRO
-PRODUCT_PACKAGES += \
-    redwoodCNSettingsProviderOverlay \
-    redwoodCNWifiOverlay \
-    redwoodGLSettingsProviderOverlay \
-    redwoodGLWifiOverlay \
-    redwoodINSettingsProviderOverlay \
-    redwoodINWifiOverlay \
-    redwoodNfcOverlay
-
-PRODUCT_PACKAGES += \
-    NcmTetheringOverlay
 
 # Partitions
 PRODUCT_PACKAGES += \
@@ -348,10 +354,6 @@ PRODUCT_COPY_FILES += \
 # QTI fwk-detect
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor # Needed by CNE app
-
-# RIL
-PRODUCT_PACKAGES += \
-    CarrierConfigOverlay
 
 # Rootdir
 PRODUCT_COPY_FILES += \
@@ -493,7 +495,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal-qcom \
-    WifiOverlay \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf
