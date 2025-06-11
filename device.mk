@@ -294,22 +294,28 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set,stagefright,target_disable_thumbnail_block_model,true)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
-
-# Overlays-RRO
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlay \
+    ApertureOverlayRedwood \
+    CarrierConfigOverlayRedwood \
+    DialerOverlayRedwood \
+    LineageSDKOverlayRedwood \
+    TelephonyOverlayRedwood
+
+PRODUCT_PACKAGES += \
+    FrameworkOverlayRedwood \
     NcmTetheringOverlay \
-    redwoodCNSettingsProviderOverlay \
-    redwoodCNWifiOverlay \
-    redwoodGLSettingsProviderOverlay \
-    redwoodGLWifiOverlay \
-    redwoodINSettingsProviderOverlay \
-    redwoodINWifiOverlay \
-    redwoodNfcOverlay \
-    WifiOverlay
+    NfcOverlayRedwood \
+    SettingsOverlayRedwood \
+    SettingsProviderOverlayRedwood \
+    SettingsProviderOverlayRedwoodCN \
+    SettingsProviderOverlayRedwoodGL \
+    SettingsProviderOverlayRedwoodIN \
+    SimpleDeviceConfigOverlayRedwood \
+    SystemUIOverlayRedwood \
+    WifiOverlayRedwood \
+    WifiOverlayRedwoodCN \
+    WifiOverlayRedwoodGL \
+    WifiOverlayRedwoodIN
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
