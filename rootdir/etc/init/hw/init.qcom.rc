@@ -346,25 +346,6 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     socket audio_hw_socket seqpacket 0666 system system
     onrestart restart audioserver
 
-service vendor.qti.hardware.display.allocator /vendor/bin/hw/vendor.qti.hardware.display.allocator-service
-    override
-    class hal animation
-    user system
-    group graphics drmrpc
-    capabilities SYS_NICE
-    onrestart restart surfaceflinger
-    task_profiles ProcessCapacityHigh HighPerformance
-
-service vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.display.composer-service
-    override
-    class hal animation
-    user system
-    group graphics drmrpc
-    capabilities SYS_NICE
-    onrestart restart surfaceflinger
-    socket pps stream 0660 system system
-    task_profiles ProcessCapacityHigh HighPerformance
-    
 # High touch sampling rate nodes
 on property:persist.vendor.touch_sensitivity_mode=0 && property:sys.boot_completed=1
     write /sys/devices/virtual/touch/touch_dev/bump_sample_rate 0
