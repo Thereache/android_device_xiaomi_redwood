@@ -1,6 +1,9 @@
 # Blur
 ro.launcher.blur.appLaunch=0
 
+# eBPF
+ro.bpf.kver_override=5.10.239
+
 # Enable Bluetooth AutoOn feature
 bluetooth.server.automatic_turn_on=true
 
