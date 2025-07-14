@@ -59,6 +59,9 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('writepid /dev/stune/nnapi-hal/tasks', 'task_profiles NNApiHALPerformance'),
     'vendor/etc/public.libraries.txt': blob_fixup()
         .regex_replace('.*libqti-perfd-client.so.*\n?', ''),
+    'vendor/etc/msm_irqbalance.conf': blob_fixup()
+        .regex_replace('#arch_timer, arm-pmu, arch_mem_timer', '#arch_timer, arm-pmu, arch_mem_timer, msm_drm, kgsl_3d0_irq')
+        .regex_replace('IGNORED_IRQ=27,23,38', 'IGNORED_IRQ=27,23,38,115,332'),
     'vendor/lib64/android.hardware.secure_element@1.0-impl.so': blob_fixup()
         .remove_needed('android.hidl.base@1.0.so'),
     ('vendor/lib64/mediadrm/libwvdrmengine.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
