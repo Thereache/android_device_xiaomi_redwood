@@ -1494,13 +1494,9 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Touchscreen firmware
 vendor/firmware/focaltech_ts_fw_m20.bin
-vendor/firmware/focaltech_ts_fw_m20.bin:vendor_ramdisk/lib/firmware/focaltech_ts_fw_m20.bin
 vendor/firmware/goodix_cfg_group_m20.bin
-vendor/firmware/goodix_cfg_group_m20.bin:vendor_ramdisk/lib/firmware/goodix_cfg_group_m20.bin
 vendor/firmware/goodix_firmware_m20.bin
-vendor/firmware/goodix_firmware_m20.bin:vendor_ramdisk/lib/firmware/goodix_firmware_m20.bin
 vendor/firmware/goodix_test_limits_255.csv
-vendor/firmware/goodix_test_limits_255.csv:vendor_ramdisk/lib/firmware/goodix_test_limits_255.csv
 
 # Vibrator firmware
 vendor/firmware/aw8697_haptic.bin
