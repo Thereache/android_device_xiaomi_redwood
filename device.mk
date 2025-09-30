@@ -48,9 +48,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     liba2dpoffload \
     libbatterylistener \
+    libexthwplugin \
     libhdmiedid \
     libhfp \
-    libsndmonitor
+    libsndmonitor \
+    libspkrprot \
+    libssrec
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_effects.xml \
