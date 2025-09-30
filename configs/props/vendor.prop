@@ -1,3 +1,6 @@
+# Audio hardware
+ro.hardware.audio.primary=redwood
+
 # Audio
 aaudio.hw_burst_min_usec=2000
 aaudio.mmap_exclusive_policy=2
