@@ -263,7 +263,7 @@ PRODUCT_PACKAGES += \
  
  ifneq ($(TARGET_BUILD_VARIANT),eng)
  PRODUCT_VENDOR_PROPERTIES += \
-     $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=E)
+     $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=W)
  endif
 
 # Network
