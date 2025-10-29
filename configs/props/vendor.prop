@@ -181,7 +181,6 @@ persist.sys.fuse.passthrough.enable=true
 vendor.gatekeeper.disable_spu=true
 
 # Graphics
-debug.mdpcomp.logs=0
 debug.sf.auto_latch_unsignaled=0
 debug.sf.early.app.duration=16500000
 debug.sf.early.sf.duration=16000000
