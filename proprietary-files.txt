@@ -698,7 +698,6 @@ vendor/lib64/libhdr_tm.so|7954c5cd5c0b23fe8d0609361c22d24c59f1448b
 
 # Display postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
-vendor/bin/ppd
 vendor/bin/qdcmss
 vendor/etc/init/qdcmss.rc
 vendor/etc/init/vendor.display.color@1.0-service.rc
