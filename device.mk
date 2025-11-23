@@ -300,7 +300,6 @@ $(call soong_config_set_bool,stagefright,target_disable_thumbnail_block_model,tr
 PRODUCT_PACKAGES += \
     ApertureOverlayRedwood \
     CarrierConfigOverlayRedwood \
-    DialerOverlayRedwood \
     LineageSDKOverlayRedwood \
     TelephonyOverlayRedwood
 
