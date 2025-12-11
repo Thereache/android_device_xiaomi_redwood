@@ -23,7 +23,7 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 $(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
 
 # MiuiCamera
-$(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/miuicamera.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/config.mk)
 
 # LeicaCamera
 $(call inherit-product-if-exists, vendor/xiaomi/miuicamera/miuicamera.mk)
