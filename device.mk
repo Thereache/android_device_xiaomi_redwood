@@ -507,6 +507,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     vendor.sys.video.disable.ubwc=1
 
 # Call the Leica Camera setup
-$(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/miuicamera.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/config.mk)
 
 -include vendor/lineage-priv/keys/keys.mk
