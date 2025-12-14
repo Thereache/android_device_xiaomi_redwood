@@ -305,6 +305,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     FrameworkOverlayRedwood \
+    Launcher3OverlayRedwood \
     NcmTetheringOverlay \
     SettingsOverlayRedwood \
     SettingsProviderOverlayRedwood \
