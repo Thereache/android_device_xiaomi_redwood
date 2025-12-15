@@ -75,6 +75,9 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('29 07 00 94', '1F 20 03 D5'),
     'vendor/lib64/hw/com.qti.chi.override.so' : blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
+    'vendor/lib64/libmisight.so' : blob_fixup()
+        .add_needed('libjsoncpp_shim.so')
+        .add_needed('libmisightjson_shim.so'),
     'vendor/lib64/libmialgo_rfs.so': blob_fixup()
         .clear_symbol_version('remote_handle64_close')
         .clear_symbol_version('remote_handle64_invoke')
