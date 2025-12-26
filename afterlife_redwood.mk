@@ -7,7 +7,7 @@
 $(call inherit-product, device/xiaomi/redwood/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/afterlife/config/common_full_phone.mk)
 
 # Device props
 TARGET_SUPPORTS_QUICK_TAP := true
@@ -16,11 +16,19 @@ TARGET_DISABLE_EPPE := true
 TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true
 TARGET_SUPPORTS_OMX_SERVICE := false
 
+# AfterLify
+AFTERLIFE_MAINTAINER := Thereache
+TARGET_ENABLE_BLUR := true
+SYSTEM_OPTIMIZE_JAVA := true
+TARGET_BOOT_ANIMATION_RES := 1080
+SYSTEMUI_OPTIMIZE_JAVA := true
+AFTERLIFE_GAPPS := true
+
 PRODUCT_BRAND := POCO
 PRODUCT_DEVICE := redwood
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := 22101320G
-PRODUCT_NAME := lineage_redwood
+PRODUCT_NAME := afterlife_redwood
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

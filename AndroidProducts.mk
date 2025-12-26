@@ -4,4 +4,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_redwood.mk
+    $(LOCAL_DIR)/afterlife_redwood.mk
