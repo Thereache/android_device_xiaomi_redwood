@@ -1374,6 +1374,7 @@ vendor/etc/sensors/config/sns_aont.json
 vendor/etc/sensors/config/sns_basic_gestures.json
 vendor/etc/sensors/config/sns_bring_to_ear.json
 vendor/etc/sensors/config/sns_cm.json
+vendor/etc/sensors/config/sns_collision_detection.json
 vendor/etc/sensors/config/sns_dbtap.json
 vendor/etc/sensors/config/sns_device_orient.json
 vendor/etc/sensors/config/sns_diag_filter.json
