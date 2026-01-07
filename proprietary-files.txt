@@ -1,5 +1,8 @@
 # All unpinned blobs below are extracted from redwood OS2.0.16.0.UMSMIXM
 
+# Current blobs with ELF checks disabled:
+# libvideoNS depends on intrinsic symbols which changed namespacs such as __aeabi_dcmpeq, __aeabi_dcmpge, which are difficult to shim
+
 # ACDB
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_Codec_cal.acdb
@@ -25,13 +28,9 @@ vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 
-# ADSP
+# ADSP Modules
 vendor/bin/adsprpcd
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
-vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libadsprpc.so
-
-# ADSP Modules
 vendor/lib/rfsa/adsp/bm2n06.bin
 vendor/lib/rfsa/adsp/bm2n08.bin
 vendor/lib/rfsa/adsp/bm2n13.bin
@@ -77,6 +76,8 @@ vendor/lib/rfsa/adsp/misound_karaoke_res.bin
 vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
 vendor/lib/rfsa/adsp/misound_res_headphone.bin
 vendor/lib/rfsa/adsp/misound_res_spk.bin
+vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libadsprpc.so
 
 # Audio configs
 vendor/etc/audio/sku_yupik/audio_platform_info_yupikidp.xml
@@ -85,22 +86,11 @@ vendor/etc/audio/sku_yupik/mixer_paths_overlay_static.xml
 vendor/etc/audio/sku_yupik/mixer_paths_yupikidp.xml
 vendor/etc/audio/sku_yupik/sound_trigger_mixer_paths_yupikidp.xml
 vendor/etc/audio/sku_yupik/sound_trigger_platform_info.xml
+vendor/etc/audio_policy_engine_configuration.xml
+vendor/etc/audio_policy_engine_default_stream_volumes.xml
+vendor/etc/audio_policy_engine_product_strategies.xml
+vendor/etc/audio_policy_engine_stream_volumes.xml
 vendor/etc/audio_tuning_mixer.txt
-
-# Audio firmware
-vendor/firmware/aw882xx_acf.bin
-
-# Audio FX modules
-system_ext/etc/permissions/audiosphere.xml
-system_ext/framework/audiosphere.jar
-vendor/lib/soundfx/libasphere.so
-vendor/lib/soundfx/libqcbassboost.so
-vendor/lib/soundfx/libqcreverb.so
-vendor/lib/soundfx/libqcvirt.so
-vendor/lib/soundfx/libshoebox.so
-vendor/lib64/soundfx/libqcbassboost.so
-vendor/lib64/soundfx/libqcreverb.so
-vendor/lib64/soundfx/libqcvirt.so
 
 # Audio Hardware
 vendor/lib/hw/audio.primary.lahaina.so:vendor/lib/hw/audio.primary.redwood.so;FIX_SONAME
@@ -116,6 +106,23 @@ vendor/lib/libresampler.so
 vendor/lib/libssrec.so:odm/lib/libssrec.so;MODULE_SUFFIX=_odm
 vendor/lib/libvideoNS.so;DISABLE_CHECKELF
 vendor/lib/vndk/libxlog.so
+
+# Audio firmware
+vendor/firmware/aw882xx_acf.bin
+
+# Audio FX modules
+system_ext/etc/permissions/audiosphere.xml
+system_ext/framework/audiosphere.jar
+vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libmisoundfx.so
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcreverb.so
+vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libshoebox.so
+vendor/lib64/soundfx/libmisoundfx.so
+vendor/lib64/soundfx/libqcbassboost.so
+vendor/lib64/soundfx/libqcreverb.so
+vendor/lib64/soundfx/libqcvirt.so
 
 # Bluetooth
 system/lib/libldacBT_abr.so
@@ -148,13 +155,9 @@ vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so
 vendor/lib/libbluetooth_audio_session_qti.so
 vendor/lib/libbluetooth_audio_session_qti_2_1.so
 
-# CAcert
-vendor/app/CACertService/CACertService.apk
-vendor/lib64/libcacertclient.so
-vendor/lib64/libjnihelper.so
-vendor/lib64/vendor.qti.hardware.cacert@1.0.so
-
 # Camera
+vendor/bin/chifeature2test
+vendor/bin/f2player
 vendor/bin/loadalgo
 vendor/lib64/camera/com.qti.actuator.redwood_sunny_s5khm2sd_dw9800_wide.so
 vendor/lib64/camera/com.qti.eeprom.redwood_aac_ov02b10_p24c64f_macro_eeprom.so
@@ -239,9 +242,6 @@ vendor/lib64/libcamera_nn_stub.so
 vendor/lib64/libcamera_scene.so
 vendor/lib64/libcamerapostproc.so
 vendor/lib64/libcamlog.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2svarnn.so
-vendor/lib64/libcapiv2vop.so
 vendor/lib64/libceres.so
 vendor/lib64/libchilog.so
 vendor/lib64/libcom.qti.chinodeutils.so
@@ -531,6 +531,12 @@ vendor/lib64/libmmcamera_mfnr.so
 vendor/lib64/libmmcamera_mfnr_t4.so
 vendor/lib64/libmmcamera_pdpc.so
 
+# CAcert
+vendor/app/CACertService/CACertService.apk
+vendor/lib64/libcacertclient.so
+vendor/lib64/libjnihelper.so
+vendor/lib64/vendor.qti.hardware.cacert@1.0.so
+
 # CDSP
 vendor/bin/cdsprpcd
 vendor/etc/init/vendor.qti.cdsprpc-service.rc
@@ -602,20 +608,6 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 
-# Computer Vision (FastCV)
-vendor/etc/cvp/v2.0/facedetection/model1.dat
-vendor/etc/cvp/v2.1/facedetection/model2.dat
-vendor/lib/libcvp2_1.so
-vendor/lib/libcvp_common.so
-vendor/lib/libfastcvdsp_stub.so
-vendor/lib/libfastcvopt.so
-vendor/lib64/libcvp2_1.so
-vendor/lib64/libcvp_common.so
-vendor/lib64/libcvpcpuRev_skel.so
-vendor/lib64/libfastcvdsp_stub.so
-vendor/lib64/libfastcvopt.so
-vendor/lib64/vendor.qti.hardware.cvp@1.0.so
-
 # Computer Vision firmware
 vendor/firmware/evass-lt.b00
 vendor/firmware/evass-lt.b01
@@ -662,30 +654,24 @@ vendor/firmware/evass.b19
 vendor/firmware/evass.mbn
 vendor/firmware/evass.mdt
 
+# Computer Vision (FastCV)
+vendor/etc/cvp/v2.0/facedetection/model1.dat
+vendor/etc/cvp/v2.1/facedetection/model2.dat
+vendor/lib/libcvp2_1.so
+vendor/lib/libcvp_common.so
+vendor/lib/libfastcvdsp_stub.so
+vendor/lib/libfastcvopt.so
+vendor/lib64/libcvp2_1.so
+vendor/lib64/libcvp_common.so
+vendor/lib64/libcvpcpuRev_skel.so
+vendor/lib64/libfastcvdsp_stub.so
+vendor/lib64/libfastcvopt.so
+vendor/lib64/vendor.qti.hardware.cvp@1.0.so
+
 # Configstore
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
-
-# Current blobs with ELF checks disabled:
-
-# Display calibration
-vendor/etc/mdss_dsi_m20_36_02_0a_dsc_vid_mi.xml
-vendor/etc/mdss_dsi_m20_42_0d_0b_dsc_vid_mi.xml
-vendor/etc/qdcm_calib_data_xiaomi_36_02_0a_video_mode_dsc_dsi_panel.xml
-vendor/etc/qdcm_calib_data_xiaomi_42_0d_0b_video_mode_dsc_dsi_panel.xml
-
-# Display Feature
-vendor/bin/displayfeature
-vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
-vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
-vendor/lib64/hw/displayfeature.default.so
-vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
-vendor/lib64/libclient2slpi.notifier.so
-vendor/lib64/libdisplayfeature.so
-vendor/lib64/libdisplayfeatureservice.so
-vendor/lib64/libmi-stc-HW-modulate.so
-vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so:vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0_vendor.so;FIX_SONAME
 
 # Display - from sunstone V816.0.8.0.UMQMIXM
 vendor/etc/display/DPU660.xml|b26dd73e361546d89bf3d7082a471703dc6ac2cb
@@ -704,6 +690,35 @@ vendor/lib64/libsdm-diag.so|393c9ad3e3ad3210515900627f65bf6e3633226e
 vendor/lib64/libsdm-disp-vndapis.so|dc3ff8c971bbcb0d1b9e5079324d1d1d05a1fd39
 vendor/lib64/libsdmextension.so|161a19a7e915174ff31a2ed05acbf0fc98368bb8
 vendor/lib64/libtinyxml2_1.so|11ceb3f1e7650c41621d47e5ec5567c8f466086e
+
+# Display calibration
+vendor/etc/mdss_dsi_m20_36_02_0a_dsc_vid_mi.xml
+vendor/etc/mdss_dsi_m20_42_0d_0b_dsc_vid_mi.xml
+vendor/etc/miLutInfo.txt
+vendor/etc/miLut_0.txt
+vendor/etc/miLut_1.txt
+vendor/etc/miLut_10.txt
+vendor/etc/miLut_11.txt
+vendor/etc/miLut_12.txt
+vendor/etc/miLut_13.txt
+vendor/etc/miLut_14.txt
+vendor/etc/miLut_15.txt
+vendor/etc/miLut_16.txt
+vendor/etc/miLut_17.txt
+vendor/etc/miLut_2.txt
+vendor/etc/miLut_3.txt
+vendor/etc/miLut_4.txt
+vendor/etc/miLut_5.txt
+vendor/etc/miLut_6.txt
+vendor/etc/miLut_7.txt
+vendor/etc/miLut_8.txt
+vendor/etc/miLut_9.txt
+vendor/etc/mi_gc_0.txt
+vendor/etc/mi_gc_1.txt
+vendor/etc/qdcm_calib_data_xiaomi_36_02_0a_video_mode_dsc_dsi_panel.xml
+vendor/etc/qdcm_calib_data_xiaomi_42_0d_0b_video_mode_dsc_dsi_panel.xml
+vendor/etc/snapdragon_color_libs_config.xml
+vendor/lib64/libmi-stc-HW-modulate.so
 
 # Display HDR - from sunstone V816.0.8.0.UMQMIXM
 vendor/lib64/libhdr_tm.so|7954c5cd5c0b23fe8d0609361c22d24c59f1448b
@@ -789,12 +804,6 @@ vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 vendor/lib64/vendor.qti.esepowermanager@1.1.so
 
-# Fingerprint
-vendor/lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.default.so;FIX_SONAME
-vendor/lib64/libgf_ca.so
-vendor/lib64/libgf_hal.so
-vendor/lib64/libgoodixhwfingerprint.so
-
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
@@ -815,7 +824,6 @@ vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_api_v02.so
-vendor/lib64/libloc_api_wds.so|3d50102465e513df54d7354a41c4211fba870755
 vendor/lib64/libloc_socket.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
@@ -874,6 +882,12 @@ vendor/firmware/a660_zap.b01
 vendor/firmware/a660_zap.b02
 vendor/firmware/a660_zap.elf
 vendor/firmware/a660_zap.mdt
+
+# Fingerprint
+vendor/lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.default.so;FIX_SONAME
+vendor/lib64/libgf_ca.so
+vendor/lib64/libgf_hal.so
+vendor/lib64/libgoodixhwfingerprint.so
 
 # HotwordEnrollment
 product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk
@@ -959,8 +973,6 @@ vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
 
-# libvideoNS depends on intrinsic symbols which changed namespacs such as __aeabi_dcmpeq, __aeabi_dcmpge, which are difficult to shim
-
 # Listen
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2svarnn.so
@@ -985,7 +997,6 @@ vendor/etc/media_yupik_v1/video_system_specs.json
 vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
 vendor/etc/video_system_specs.json
-vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 vendor/lib/libmmosal.so;MODULE_SUFFIX=_vendor
 vendor/lib/libqc2vppfilter.so
 vendor/lib/libqcodec2_base.so
@@ -1058,14 +1069,24 @@ product/media/audio/ringtones/ToyRobot.ogg
 product/media/audio/ringtones/Vigor.ogg
 
 # Media configs
-vendor/etc/media/video_system_specs.json
+vendor/etc/media_codecs.xml
+vendor/etc/media_codecs_lahaina.xml
+vendor/etc/media_codecs_lahaina_vendor.xml
+vendor/etc/media_codecs_performance.xml
 vendor/etc/media_codecs_performance_lahaina.xml
+vendor/etc/media_codecs_performance_lahaina_vendor.xml
 vendor/etc/media_codecs_performance_yupik_v1.xml
-vendor/etc/media_lahaina/video_system_specs.json
+vendor/etc/media_codecs_system_default.xml
+vendor/etc/media_codecs_system_default_lahaina.xml
+vendor/etc/media_codecs_system_default_yupik.xml
+vendor/etc/media_codecs_yupik_v1.xml
+vendor/etc/media_profiles.xml
+vendor/etc/media_profiles_V1_0.xml
 vendor/etc/media_profiles_lahaina.xml
+vendor/etc/media_profiles_lahaina_vendor.xml
+vendor/etc/media_profiles_vendor.xml
 vendor/etc/media_profiles_yupik_v1.xml
-vendor/etc/media_yupik_v1/video_system_specs.json
-vendor/etc/video_system_specs.json
+vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 
 # Media (VPU firmware)
 vendor/firmware/vpu20_1v.b00
@@ -1093,6 +1114,61 @@ vendor/firmware/vpu20_1v.lst
 vendor/firmware/vpu20_1v.mbn
 vendor/firmware/vpu20_1v.mdt
 vendor/firmware/vpu20_1v_unsigned.mbn
+vendor/firmware/vpu20_2v.b00
+vendor/firmware/vpu20_2v.b01
+vendor/firmware/vpu20_2v.b02
+vendor/firmware/vpu20_2v.b03
+vendor/firmware/vpu20_2v.b04
+vendor/firmware/vpu20_2v.b05
+vendor/firmware/vpu20_2v.b06
+vendor/firmware/vpu20_2v.b07
+vendor/firmware/vpu20_2v.b08
+vendor/firmware/vpu20_2v.b09
+vendor/firmware/vpu20_2v.b10
+vendor/firmware/vpu20_2v.b11
+vendor/firmware/vpu20_2v.b12
+vendor/firmware/vpu20_2v.b13
+vendor/firmware/vpu20_2v.b14
+vendor/firmware/vpu20_2v.b15
+vendor/firmware/vpu20_2v.b16
+vendor/firmware/vpu20_2v.b17
+vendor/firmware/vpu20_2v.b18
+vendor/firmware/vpu20_2v.b19
+vendor/firmware/vpu20_2v.mbn
+vendor/firmware/vpu20_2v.mdt
+vendor/firmware/vpu20_2v_unsigned.mbn
+vendor/firmware/vpu20_4v.b00
+vendor/firmware/vpu20_4v.b01
+vendor/firmware/vpu20_4v.b02
+vendor/firmware/vpu20_4v.b03
+vendor/firmware/vpu20_4v.b04
+vendor/firmware/vpu20_4v.b05
+vendor/firmware/vpu20_4v.b06
+vendor/firmware/vpu20_4v.b07
+vendor/firmware/vpu20_4v.b08
+vendor/firmware/vpu20_4v.b09
+vendor/firmware/vpu20_4v.b10
+vendor/firmware/vpu20_4v.b11
+vendor/firmware/vpu20_4v.b12
+vendor/firmware/vpu20_4v.b13
+vendor/firmware/vpu20_4v.b14
+vendor/firmware/vpu20_4v.b15
+vendor/firmware/vpu20_4v.b16
+vendor/firmware/vpu20_4v.b17
+vendor/firmware/vpu20_4v.b18
+vendor/firmware/vpu20_4v.b19
+vendor/firmware/vpu20_4v.elf
+vendor/firmware/vpu20_4v.lst
+vendor/firmware/vpu20_4v.mbn
+vendor/firmware/vpu20_4v.mdt
+vendor/firmware/vpu20_4v_unsigned.mbn
+
+# Mlipay
+vendor/bin/mlipayd@1.1
+vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
+vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
+vendor/lib64/libmlipay.so
+vendor/lib64/libmlipay@1.1.so
 
 # MiSys
 system/lib64/libmisys_jni.xiaomi.so
@@ -1125,13 +1201,6 @@ vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.xiaomi.hardware.misys@3.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.xiaomi.hardware.misys@4.0.so;MODULE_SUFFIX=_vendor
-
-# Mlipay
-vendor/bin/mlipayd@1.1
-vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
-vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
-vendor/lib64/libmlipay.so
-vendor/lib64/libmlipay@1.1.so
 
 # NFC
 vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
@@ -1472,6 +1541,15 @@ vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 
+# Trusted Execution Environment connector
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib64/libGPQTEEC_vendor.so
+vendor/lib64/libGPTEE_vendor.so
+vendor/lib64/libQTEEConnector_vendor.so
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+
 # Touchscreen firmware
 vendor/firmware/focaltech_ts_fw_m20.bin
 vendor/firmware/focaltech_ts_fw_m20.bin:vendor_ramdisk/lib/firmware/focaltech_ts_fw_m20.bin
@@ -1481,15 +1559,6 @@ vendor/firmware/goodix_firmware_m20.bin
 vendor/firmware/goodix_firmware_m20.bin:vendor_ramdisk/lib/firmware/goodix_firmware_m20.bin
 vendor/firmware/goodix_test_limits_255.csv
 vendor/firmware/goodix_test_limits_255.csv:vendor_ramdisk/lib/firmware/goodix_test_limits_255.csv
-
-# Trusted Execution Environment connector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Vibrator firmware
 vendor/firmware/aw8697_haptic.bin

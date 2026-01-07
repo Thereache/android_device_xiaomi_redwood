@@ -27,8 +27,8 @@ namespace_imports = [
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
     'vendor/qcom/opensource/display',
+    'vendor/xiaomi/redwood',
 ]
-
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
@@ -53,6 +53,13 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
         .regex_replace('.*ozoaudio.*\n?', '')
         .regex_replace('.*dolby.*\n?', ''),
+    ('vendor/etc/camera/pureShot_parameter.xml', 'vendor/etc/camera/pureView_parameter.xml'): blob_fixup()
+        .regex_replace(r'=(\d+)>', r'="\1">'),
+    ('vendor/etc/media_codecs.xml', 'vendor/etc/media_codecs_lahaina.xml', 'vendor/etc/media_codecs_system_default.xml', 'vendor/etc/media_codecs_system_default_lahaina.xml', 'vendor/etc/media_codecs_system_default_yupik.xml'): blob_fixup()
+        .regex_replace('.+media_codecs_(c2_audio|google_audio|google_c2|google_telephony|vendor_audio).+\n', '')
+        .regex_replace(r'(?s)(<Settings.*?>)',r'\1\n        <Domain name="telephony" enabled="true" />'),
+    ('vendor/etc/media_codecs_yupik_v1.xml', 'vendor/etc/media_codecs_lahaina_vendor.xml'): blob_fixup()
+        .regex_replace('.+media_codecs_with_dolby.+\n', ''),
     ('vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc', 'vendor/etc/init/vendor.qti.media.c2@1.0-service.rc'): blob_fixup()
         .regex_replace('writepid /dev/cpuset/foreground/tasks', 'task_profiles ProcessCapacityHigh'),
     'vendor/etc/public.libraries.txt': blob_fixup()
@@ -64,8 +71,6 @@ blob_fixups: blob_fixups_user_type = {
         .remove_needed('android.hidl.base@1.0.so'),
     ('vendor/lib64/mediadrm/libwvdrmengine.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
          .add_needed('libcrypto_shim.so'),
-    ('vendor/etc/camera/pureShot_parameter.xml', 'vendor/etc/camera/pureView_parameter.xml'): blob_fixup()
-        .regex_replace(r'=(\d+)>', r'="\1">'),
     'vendor/lib/libaudioroute_ext.so': blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
     'vendor/lib/hw/audio.primary.redwood.so': blob_fixup()
@@ -100,11 +105,13 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_handle_open'),
     'vendor/lib64/libsensor_cal_v2.so': blob_fixup()
         .add_needed('libjsoncpp_shim.so'),
-    'vendor/lib64/hw/displayfeature.default.so': blob_fixup()
-        .replace_needed('vendor.xiaomi.hardware.displayfeature@1.0.so', 'vendor.xiaomi.hardware.displayfeature@1.0_vendor.so'),
-    ('vendor/etc/media_codecs.xml', 'vendor/etc/media_codecs_yupik_v0.xml', 'vendor/etc/media_codecs_yupik_v1.xml'): blob_fixup()
-        .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
+    'vendor/etc/libnfc-nci.conf': blob_fixup()
+        .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
+    'vendor/etc/libnfc-nxp.conf': blob_fixup()
+        .regex_replace('(NXPLOG_.*_LOGLEVEL)=0x03', '\\1=0x02')
+        .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
 }  # fmt: skip
+
 
 module = ExtractUtilsModule(
     'redwood',
