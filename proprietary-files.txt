@@ -692,8 +692,6 @@ vendor/lib64/libsdmextension.so|161a19a7e915174ff31a2ed05acbf0fc98368bb8
 vendor/lib64/libtinyxml2_1.so|11ceb3f1e7650c41621d47e5ec5567c8f466086e
 
 # Display calibration
-vendor/etc/mdss_dsi_m20_36_02_0a_dsc_vid_mi.xml
-vendor/etc/mdss_dsi_m20_42_0d_0b_dsc_vid_mi.xml
 vendor/etc/miLutInfo.txt
 vendor/etc/miLut_0.txt
 vendor/etc/miLut_1.txt
