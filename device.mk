@@ -22,6 +22,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
+# MiuiCamera
+$(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/common.mk)
+
 # API
 BOARD_SHIPPING_API_LEVEL := 31
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
@@ -513,8 +516,5 @@ PRODUCT_PACKAGES += \
 # WiFi Display
 PRODUCT_SYSTEM_PROPERTIES += \
     vendor.sys.video.disable.ubwc=1
-
-# Call the Leica Camera setup
-$(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/config.mk)
 
 -include vendor/lineage-priv/keys/keys.mk
