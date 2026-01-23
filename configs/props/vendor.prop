@@ -149,11 +149,11 @@ ro.bluetooth.a2dp_offload.supported=true
 
 # Camera
 camera.disable_zsl_mode=true
-ro.hardware.camera=xiaomi
 persist.vendor.camera.logLevel=0
 persist.vendor.camera.logInfoMask=false
 persist.vendor.camera.perflock.enable=0
 persist.vendor.camera.sensor=0
+ro.hardware.camera=xiaomi
 vendor.camera.aux.packagelist=com.android.camera,org.lineageos.aperture,org.lineageos.aperture.dev,com.snapchat.android
 
 # DRM
@@ -178,6 +178,10 @@ persist.vendor.dpm.feature=1
 persist.vendor.dpm.idletimer.mode=default
 persist.vendor.dpm.nsrm.bkg.evt=3955
 persist.vendor.dpmhalservice.enable=1
+
+# Fingerprint
+persist.vendor.fingerprint.type=side
+persist.vendor.fingerprint.sensor_location=1080|920|200|local:4630946480857061762,1080|920|200|local:4630946622257352578
 
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
@@ -217,7 +221,6 @@ ro.surface_flinger.blur_disabled_by_default=true
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.use_content_detection_for_refresh_rate?=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
-ro.surface_flinger.supports_background_blur=1
 ro.vendor.sf.enable_fb_scaling=1
 vendor.display.comp_mask=0
 vendor.display.disable_excl_rect=0
@@ -238,6 +241,7 @@ vendor.display.enable_allow_idle_fallback=1
 vendor.display.disable_idle_time_video=1
 vendor.display.disable_idle_time_hdr=1
 vendor.display.override_doze_mode=1
+vendor.display.vds_allow_hwc=1
 vendor.gralloc.disable_ubwc=0
 debug.sdm.support_writeback=0
 
@@ -262,13 +266,6 @@ ro.vendor.se.type=eSE,HCE,UICC
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf.scroll_opt=true
-
-# Fingerprint
-persist.vendor.fingerprint.type=side
-persist.vendor.fingerprint.sensor_location=1080|920|200|local:4630946480857061762,1080|920|200|local:4630946622257352578
-
-# Recovery properties
-ro.recovery.batteryless=true
 
 # Radio
 keyguard.no_require_sim=true

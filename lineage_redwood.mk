@@ -9,12 +9,6 @@ $(call inherit-product, device/xiaomi/redwood/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Pribuilt kernel true/false
-PREBUILT_KERNEL := true
-
-# Gapps
-WITH_GMS := true
-
 # Device props
 TARGET_SUPPORTS_QUICK_TAP := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
@@ -39,3 +33,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildFlavor=redwood_global-user \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
+
+# Gapps
+WITH_GMS := true
+
+# Pribuilt kernel true/false
+PREBUILT_KERNEL := true

@@ -130,13 +130,9 @@ on early-boot
     start vendor.sensors
 
 on boot
-    chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig
-    chmod 0664 /sys/class/thermal/thermal_message/balance_mode
     chown system system /sys/class/thermal/thermal_message/balance_mode
-    chmod 0664 /sys/class/thermal/thermal_message/charger_temp
     chown system system /sys/class/thermal/thermal_message/charger_temp
-    chmod 0664 /sys/class/thermal/thermal_message/flash_state
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
 
     # Set xiaomi touch permissions
@@ -148,8 +144,8 @@ on boot
     chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
 
     # Set high brightness mode permissions
-    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm_enabled
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm_enabled
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
 
     write /dev/cpuset/audio-app/cpus 1-2
     # init the  cpuset value for the camera background,don't change the oder
