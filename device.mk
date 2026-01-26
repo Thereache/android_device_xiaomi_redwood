@@ -236,11 +236,6 @@ PRODUCT_COPY_FILES += \
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
 OVERRIDE_ENABLE_UFFD_GC := true
-ifeq ($(PREBUILT_KERNEL),true)
-LOCAL_KERNEL := device/xiaomi/redwood-kernel/Image
-PRODUCT_COPY_FILES += \
-	$(LOCAL_KERNEL):kernel
-endif
 
 # Keylayout
 PRODUCT_COPY_FILES += \

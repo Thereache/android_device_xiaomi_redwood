@@ -36,6 +36,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Gapps
 WITH_GMS := true
-
-# Pribuilt kernel true/false
-PREBUILT_KERNEL := true
