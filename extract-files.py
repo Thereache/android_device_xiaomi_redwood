@@ -106,7 +106,7 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_handle_open'),
     'vendor/lib64/libsensor_cal_v2.so': blob_fixup()
         .add_needed('libjsoncpp_shim.so'),
-    ('vendor/lib64/libdpps.so', 'vendor/lib64/libsnapdragoncolor-manager.so', 'vendor/lib64/libaudiocloudctrl.so'): blob_fixup()
+    ('vendor/lib/libaudiocloudctrl.so', 'vendor/lib64/libdpps.so', 'vendor/lib64/libsnapdragoncolor-manager.so'): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()
         .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
