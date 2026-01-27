@@ -22,9 +22,6 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 # MiuiCamera
 $(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/common.mk)
 
-# LeicaCamera
-$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/miuicamera.mk)
-
 # API
 BOARD_SHIPPING_API_LEVEL := 31
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
