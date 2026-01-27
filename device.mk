@@ -19,14 +19,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
-# Enable ViPER4AndroidFX
-$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
-
 # MiuiCamera
 $(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/common.mk)
-
-# LeicaCamera
-$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/miuicamera.mk)
 
 # API
 BOARD_SHIPPING_API_LEVEL := 31
