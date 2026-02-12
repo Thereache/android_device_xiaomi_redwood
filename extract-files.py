@@ -64,7 +64,8 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('writepid /dev/cpuset/foreground/tasks', 'task_profiles ProcessCapacityHigh'),
     'vendor/etc/public.libraries.txt': blob_fixup()
         .regex_replace('.*libqti-perfd-client.so.*\n?', '')
-        .regex_replace(r'(?s)^(.*)\Z',r'\1libmialgoengine.so'),
+        .regex_replace(r'(?s)^(.*)\Z',r'\1libmialgoengine.so')
+        .regex_replace(r'(?s)^(.*)',r'com.qti.chi.override.so\n\1'),
     'vendor/etc/msm_irqbalance.conf': blob_fixup()
         .regex_replace('#arch_timer, arm-pmu, arch_mem_timer', '#arch_timer, arm-pmu, arch_mem_timer, msm_drm, kgsl_3d0_irq')
         .regex_replace('IGNORED_IRQ=27,23,38', 'IGNORED_IRQ=27,23,38,115,332'),
