@@ -712,8 +712,6 @@ vendor/etc/mi_gc_0.txt
 vendor/etc/mi_gc_1.txt
 vendor/etc/qdcm_calib_data_xiaomi_36_02_0a_video_mode_dsc_dsi_panel.xml
 vendor/etc/qdcm_calib_data_xiaomi_42_0d_0b_video_mode_dsc_dsi_panel.xml
-vendor/etc/snapdragon_color_libs_config.xml
-vendor/lib64/libmi-stc-HW-modulate.so
 
 # Display HDR - from sunstone V816.0.8.0.UMQMIXM
 vendor/lib64/libhdr_tm.so|7954c5cd5c0b23fe8d0609361c22d24c59f1448b
