@@ -14,10 +14,6 @@ vendor.camera.aux.packagelist=org.lineageos.aperture,com.android.camera,com.goog
 debug.hwui.skia_atrace_enabled=false
 debug.hwui.skia_use_perfetto_track_events=false
 
-# Deep Sleep
-pm.sleep_mode=1
-vendor.post_boot.parsed=1s
-
 # Fling velocities
 ro.min.fling_velocity=70
 ro.max.fling_velocity=21000
