@@ -350,3 +350,10 @@ service vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.
     onrestart restart surfaceflinger
     socket pps stream 0660 system system
     task_profiles ProcessCapacityHigh HighPerformance
+    
+# High touch sampling rate nodes
+on property:persist.vendor.touch_sensitivity_mode=0 && property:sys.boot_completed=1
+    write /sys/devices/virtual/touch/touch_dev/bump_sample_rate 0
+
+on property:persist.vendor.touch_sensitivity_mode=1 && property:sys.boot_completed=1
+    write /sys/devices/virtual/touch/touch_dev/bump_sample_rate 1
