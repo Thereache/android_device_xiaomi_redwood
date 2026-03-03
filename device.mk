@@ -154,7 +154,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey \
+    android.hardware.drm@latest-service.clearkey \
     libcrypto_shim
 
 # Fingerprint
