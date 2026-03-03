@@ -154,7 +154,7 @@ $(call inherit-product-if-exists, hardware/dolby/dolby.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey \
+    android.hardware.drm@latest-service.clearkey \
     libcrypto_shim
 
 # Dev Keys
