@@ -115,3 +115,10 @@ persist.log.tag.minksocket=S
 
 # Userfaultfd GC
 ro.dalvik.vm.enable_uffd_gc=True
+
+ro.ascp.device=Poco X5 Pro 5G
+ro.ascp.maintainer=Thereache
+ro.ascp.soc=Qualcomm Snapdragon 778G 5G (SM7325-2-AB)
+ro.ascp.display=2400 x 1080 120Hz
+ro.ascp.frontcam=16MP
+ro.ascp.backcam=108MP + 8MP + 2MP

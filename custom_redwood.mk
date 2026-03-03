@@ -7,7 +7,7 @@
 $(call inherit-product, device/xiaomi/redwood/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/custom/config/common_full_phone.mk)
 
 # Device props
 TARGET_SUPPORTS_QUICK_TAP := true
@@ -20,7 +20,7 @@ PRODUCT_BRAND := POCO
 PRODUCT_DEVICE := redwood
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := 22101320G
-PRODUCT_NAME := lineage_redwood
+PRODUCT_NAME := custom_redwood
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
@@ -36,3 +36,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Gapps
 WITH_GMS := true
+
+# ascp flags
+ASCP_MAINTAINER := Thereache
+WITH_BCR := true
+WITH_REVANCED := true
+ASCP_OFFICIAL := true
