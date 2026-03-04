@@ -26,6 +26,14 @@ $(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/common.mk)
 BOARD_SHIPPING_API_LEVEL := 31
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
+# ART / Dexpreopt
+PRODUCT_USES_DEFAULT_ART_CONFIG := true
+
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_DEBUG_INFO := false
+DEX_PREOPT_DEFAULT := speed-profile
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
 # Audio
 PRODUCT_PACKAGES += \
     libqcompostprocbundle \
