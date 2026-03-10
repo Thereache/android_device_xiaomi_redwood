@@ -358,10 +358,6 @@ $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/qcom-batte
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sysconfig/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist.xml
 
-# QTI fwk-detect
-PRODUCT_PACKAGES += \
-    libvndfwk_detect_jni.qti.vendor # Needed by CNE app
-
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
