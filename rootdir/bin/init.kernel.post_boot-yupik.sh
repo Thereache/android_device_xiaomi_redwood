@@ -95,23 +95,13 @@ function configure_memory_parameters() {
 
 	ProductName=`getprop ro.product.name`
 
-        devicename=`getprop ro.product.device`
-
 	configure_zram_parameters
 	echo 60 > /proc/sys/vm/swappiness
 
         # Disable wsf  beacause we are using efk.
         # wsf Range : 1..1000. So set to bare minimum value 1.
-	if [ "$ProductName" == "redwood" ]; then
-		echo 60 > /proc/sys/vm/watermark_scale_factor
-	else
 		echo 1 > /proc/sys/vm/watermark_scale_factor
-	fi
-
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-        if [ "$devicename" == "redwood" -a $MemTotal -le 6291456 ]; then
-		echo 180 > /proc/sys/vm/swappiness
-	fi
 
 	MemTotal=${MemTotalStr:16:8}
 	if [ $MemTotal -le 8388608 ]; then
