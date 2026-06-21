@@ -662,4 +662,7 @@
 	
     <!-- Whether glanceable hub is enabled by default. -->
     <bool name="config_glanceableHubEnabledByDefault">false</bool>
+	
+    <!-- Whether extended lockscreen battery info is enabled by default. -->
+    <bool name="config_lockscreenBatteryInfo">true</bool>
 </resources>
