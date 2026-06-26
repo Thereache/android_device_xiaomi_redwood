@@ -7,14 +7,6 @@
     <!-- Default values for LiveDisplay -->
     <bool name="config_enableLiveDisplay">false</bool>
 
-    <!-- Defines the actions shown in advanced reboot submenu -->
-    <string-array name="config_restartActionsList">
-        <item>restart</item>
-        <item>restart_systemui</item>
-        <item>restart_recovery</item>
-        <item>restart_bootloader</item>
-    </string-array>
-
     <!-- Whether device has a screen with a higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
 </resources>
