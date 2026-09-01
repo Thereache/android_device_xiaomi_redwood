@@ -326,6 +326,8 @@ vendor.usb.use_gadget_hal=1
 ro.virtual_ab.compression.threads=true
 
 # Wifi
+persist.vendor.wifi.debug_level=0
+persist.vendor.wifi.log_level=0
 wifi.aware.interface=wifi-aware0
 
 # Zygote
