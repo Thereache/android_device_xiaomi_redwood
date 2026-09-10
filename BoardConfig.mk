@@ -208,6 +208,12 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
+ifneq ($(wildcard system/sepolicy/private/platform_app_36.te),)
+BOARD_SEPOLICY_M4DEFS += miui_camera_platform_domain=platform_app_36
+else
+BOARD_SEPOLICY_M4DEFS += miui_camera_platform_domain=platform_app
+endif
+
 # SurfaceFlinger
 TARGET_USE_AOSP_SURFACEFLINGER := true
 
