@@ -1,22 +1,22 @@
 # Audio
-get_prop(platform_app, audio_config_prop)
+get_prop(miui_camera_platform_domain, audio_config_prop)
 
-allow platform_app vendor_hal_soter_hwservice:hwservice_manager find;
-allow platform_app hal_misys_hwservice:hwservice_manager find;
-binder_call(platform_app, vendor_hal_soter_qti)
-binder_call(platform_app, hal_misys_default)
+allow miui_camera_platform_domain vendor_hal_soter_hwservice:hwservice_manager find;
+allow miui_camera_platform_domain hal_misys_hwservice:hwservice_manager find;
+binder_call(miui_camera_platform_domain, vendor_hal_soter_qti)
+binder_call(miui_camera_platform_domain, hal_misys_default)
 
 # Leica Camera
-get_prop(platform_app, vendor_display_prop)
-get_prop(platform_app, vendor_camera_sensor_prop)
-allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
-binder_call(platform_app, vendor_hal_camerapostproc_xiaomi)
+get_prop(miui_camera_platform_domain, vendor_display_prop)
+get_prop(miui_camera_platform_domain, vendor_camera_sensor_prop)
+allow miui_camera_platform_domain vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+binder_call(miui_camera_platform_domain, vendor_hal_camerapostproc_xiaomi)
 
 # Incremental
-get_prop(platform_app, incremental_prop)
+get_prop(miui_camera_platform_domain, incremental_prop)
 # To create files, get permission to fill blocks, and configure Incremental File System
-allow platform_app incremental_control_file:file { ioctl r_file_perms };
-allowxperm platform_app incremental_control_file:file ioctl {
+allow miui_camera_platform_domain incremental_control_file:file { ioctl r_file_perms };
+allowxperm miui_camera_platform_domain incremental_control_file:file ioctl {
   INCFS_IOCTL_CREATE_FILE
   INCFS_IOCTL_CREATE_MAPPED_FILE
   INCFS_IOCTL_PERMIT_FILL
@@ -26,7 +26,7 @@ allowxperm platform_app incremental_control_file:file ioctl {
 };
 # To get signature of an APK installed on Incremental File System, and fill in data
 # blocks and get the filesystem state
-allowxperm platform_app apk_data_file:file ioctl {
+allowxperm miui_camera_platform_domain apk_data_file:file ioctl {
   INCFS_IOCTL_READ_SIGNATURE
   INCFS_IOCTL_FILL_BLOCKS
   INCFS_IOCTL_GET_FILLED_BLOCKS
