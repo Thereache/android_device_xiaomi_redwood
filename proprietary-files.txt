@@ -1147,38 +1147,6 @@ vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
 vendor/lib64/libmlipay.so
 vendor/lib64/libmlipay@1.1.so
 
-# MiSys
-system/lib64/libmisys_jni.xiaomi.so
-system/lib64/vendor.xiaomi.hardware.misys@1.0.so
-system/lib64/vendor.xiaomi.hardware.misys@2.0.so
-system/lib64/vendor.xiaomi.hardware.misys@3.0.so
-system/lib64/vendor.xiaomi.hardware.misys@4.0.so
-vendor/bin/hw/vendor.xiaomi.hardware.misys@1.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@2.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@3.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@4.0-service
-vendor/etc/init/vendor.xiaomi.hardware.misys@1.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@2.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@3.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@4.0-service.rc
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@1.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@2.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@3.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@4.0.xml
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@3.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@4.0-impl.so
-vendor/lib64/libcheckpid.so
-vendor/lib64/liblogwrap_vendor.so
-vendor/lib64/libmicuttlefish_fs.so
-vendor/lib64/libmicuttlefish_utils.so
-vendor/lib64/libmivsock_utils.so
-vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.xiaomi.hardware.misys@3.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.xiaomi.hardware.misys@4.0.so;MODULE_SUFFIX=_vendor
-
 # NFC
 vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
 
@@ -1204,7 +1172,6 @@ vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
 # Public libraries
-system/etc/public.libraries-xiaomi.txt
 vendor/etc/public.libraries.txt
 
 # QCV
