@@ -2,9 +2,7 @@
 get_prop(miui_camera_platform_domain, audio_config_prop)
 
 allow miui_camera_platform_domain vendor_hal_soter_hwservice:hwservice_manager find;
-allow miui_camera_platform_domain hal_misys_hwservice:hwservice_manager find;
 binder_call(miui_camera_platform_domain, vendor_hal_soter_qti)
-binder_call(miui_camera_platform_domain, hal_misys_default)
 
 # Leica Camera
 get_prop(miui_camera_platform_domain, vendor_display_prop)

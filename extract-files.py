@@ -40,10 +40,6 @@ lib_fixups: lib_fixups_user_type = {
         'com.qualcomm.qti.dpm.api@1.0',
         'libmmosal',
         'vendor.qti.imsrtpservice@3.0',
-        'vendor.xiaomi.hardware.misys@1.0',
-        'vendor.xiaomi.hardware.misys@2.0',
-        'vendor.xiaomi.hardware.misys@3.0',
-        'vendor.xiaomi.hardware.misys@4.0',
     ): lib_fixup_vendor_suffix,
 }
 
