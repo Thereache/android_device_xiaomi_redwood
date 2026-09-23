@@ -58,6 +58,10 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('.+media_codecs_(dolby_audio|with_dolby_yupik).+\n', ''),
     'vendor/etc/media_codecs_lahaina_vendor.xml': blob_fixup()
         .regex_replace('.+media_codecs_(dolby_audio|with_dolby_lahaina).+\n', ''),
+    'vendor/etc/init/netmgrd.rc': blob_fixup()
+        .regex_replace(r'    #Load rmnet_core driver\n(?:    exec [^\n]*modprobe[^\n]*\n)+',
+                       '    # RMNET drivers are built into the kernel.\n')
+        .regex_replace(r'\non property:persist\.vendor\.data\.(?:shs|perf|offload)_ko_load=[0-3]\n(?:    exec [^\n]*modprobe[^\n]*\n)+', ''),
     ('vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc', 'vendor/etc/init/vendor.qti.media.c2@1.0-service.rc'): blob_fixup()
         .regex_replace('writepid /dev/cpuset/foreground/tasks', 'task_profiles ProcessCapacityHigh'),
     'vendor/etc/public.libraries.txt': blob_fixup()
