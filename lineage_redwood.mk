@@ -12,9 +12,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from MindTheGapps
 $(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
 
-# Device props
-TARGET_SUPPORTS_OMX_SERVICE := false
-
+# Device identifier. This must come after all inclusions.
 PRODUCT_BRAND := POCO
 PRODUCT_DEVICE := redwood
 PRODUCT_MANUFACTURER := Xiaomi
