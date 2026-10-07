@@ -74,11 +74,7 @@ blob_fixups: blob_fixups_user_type = {
         .remove_needed('android.hidl.base@1.0.so'),
     ('vendor/lib64/mediadrm/libwvdrmengine.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
          .add_needed('libcrypto_shim.so'),
-    'vendor/lib/libaudioroute_ext.so': blob_fixup()
-        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
-    'vendor/lib/hw/audio.primary.redwood.so': blob_fixup()
-        .replace_needed('/vendor/lib/liba2dpoffload.so', '/odm/lib/liba2dpoffload.so')
-        .replace_needed('/vendor/lib/libssrec.so', '/odm/lib/libssrec.so')
+    ('vendor/lib/hw/audio.primary.lahaina.so', 'vendor/lib/libaudioroute_ext.so'): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
     'vendor/lib64/hw/camera.qcom.so': blob_fixup()
         .sig_replace('73 74 5F 6C 69 63 65 6E 73 65 2E 6C 69 63', '63 61 6D 65 72 61 5F 63 6E 66 2E 74 78 74')
