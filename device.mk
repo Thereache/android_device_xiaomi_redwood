@@ -40,30 +40,19 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libtinycompress \
     libvolumelistener
 
 PRODUCT_PACKAGES += \
     audioadsprpcd \
-    audio.primary.lahaina \
     audio.r_submix.default \
-    audio.usb.default \
-    sound_trigger.primary.lahaina
+    audio.usb.default
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl
-
-PRODUCT_PACKAGES += \
-    liba2dpoffload \
-    libbatterylistener \
-    libexthwplugin \
-    libhdmiedid \
-    libhfp \
-    libsndmonitor \
-    libspkrprot \
-    libssrec
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_effects.xml \
