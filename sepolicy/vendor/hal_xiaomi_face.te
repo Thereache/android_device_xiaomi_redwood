@@ -1,0 +1,5 @@
+allow hal_xiaomi_face fwk_camera_hwservice:hwservice_manager find;
+binder_call(hal_xiaomi_face, cameraserver)
+binder_call(cameraserver, hal_xiaomi_face)
+allow hal_xiaomi_face cameraserver:fd use;
+allow cameraserver hal_xiaomi_face:fd use;

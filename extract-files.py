@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+import os
+import subprocess
+
 from extract_utils.fixups_blob import (
     blob_fixup,
     blob_fixups_user_type,
@@ -33,6 +36,28 @@ namespace_imports = [
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
+def split_zip(ctx, file, file_path, *args, **kwargs):
+    subprocess.run(['split', '--bytes=20M', '-d', file_path, f'{file_path}.part'], check=True)
+
+def add_to_gitignore(ctx, file, file_path, *args, **kwargs):
+    # Navigate to Android root from script location, then target the vendor directory
+    script_dir = os.path.dirname(__file__)
+    gitignore_path = os.path.abspath(os.path.join(script_dir, '../../..', 'vendor/xiaomi/redwood', '.gitignore'))
+    
+    # Ensure the parent directories exist
+    os.makedirs(os.path.dirname(gitignore_path), exist_ok=True)
+    
+    entry = 'proprietary/vendor/etc/faceunlock/resources.zip\n'
+    
+    # Check if the entry already exists before appending
+    if os.path.exists(gitignore_path):
+        with open(gitignore_path, 'r') as f:
+            if entry in f.readlines():
+                return
+                
+    with open(gitignore_path, 'a') as f:
+        f.write(entry)
+
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
@@ -45,6 +70,9 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/etc/faceunlock/resources.zip': blob_fixup()
+        .call(split_zip)
+        .call(add_to_gitignore),
     ('vendor/etc/media_lahaina/video_system_specs.json', 'vendor/etc/media_yupik_v1/video_system_specs.json'): blob_fixup()
         .regex_replace('"max_retry_alloc_output_timeout": 10000,', '"max_retry_alloc_output_timeout": 0,'),
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
