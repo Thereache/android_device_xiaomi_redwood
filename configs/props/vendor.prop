@@ -334,3 +334,9 @@ wifi.aware.interface=wifi-aware0
 
 # Zygote
 zygote.critical_window.minute=10
+
+# Adreno: drop the driver's per-process info banners (version dumps, shader
+# cache notes); warnings and errors are still logged
+log.tag.AdrenoVK-0=W
+log.tag.AdrenoGLES-0=W
+log.tag.Adreno-AppProfiles=E
