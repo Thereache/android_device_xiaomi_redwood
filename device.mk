@@ -224,13 +224,11 @@ PRODUCT_PACKAGES += \
      SensorService \
      WifiHAL \
      cnss-daemon \
-     libcitsensorservice@2.0-impl \
      libsensor-displayalgo \
      libsensor-parseRGB \
      libsensor-ssccalapi \
      sensors \
      vendor.qti.hardware.display.composer-service \
-     vendor.xiaomi.sensor.citsensorservice@2.0-service \
      vendor.qti.bluetooth@1.0-ibs_handler \
      vendor.qti.bluetooth@1.0-wake_lock
  
@@ -358,6 +356,9 @@ $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/bin/*.sh),\
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal
+
+PRODUCT_PACKAGES += \
+    sensor-notifier
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
