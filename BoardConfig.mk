@@ -100,7 +100,6 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
 
-<<<<<<< HEAD
 BOARD_KERNEL_CMDLINE += \
     androidboot.hardware=qcom \
     androidboot.init_fatal_reboot_target=recovery \
@@ -110,12 +109,11 @@ BOARD_KERNEL_CMDLINE += \
     iptable_raw.raw_before_defrag=1 \
     ip6table_raw.raw_before_defrag=1 \
     kpti=off \
-    loop.max_part=7 \
     msm_rtb.filter=0x237 \
-    pcie_ports=compat \
-    service_locator.enable=1 \
-    swiotlb=noforce
+    service_locator.enable=1
 
+# The kernel's own bootargs (yupik.dtsi) already have swiotlb=0,
+# loop.max_part=7 and pcie_ports=compat, and the debug UART console is off
 # 6.12 turns unused clocks and power domains off before the display driver
 # takes over the bootloader's splash, which kills the panel
 BOARD_KERNEL_CMDLINE += clk_ignore_unused pd_ignore_unused
