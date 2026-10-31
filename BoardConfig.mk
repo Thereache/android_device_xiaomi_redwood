@@ -4,7 +4,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/redwood
-KERNEL_PATH := device/xiaomi/redwood-kernel
+KERNEL_PATH := device/xiaomi/redwood-kernel-6.12
 
 BOARD_VENDOR := xiaomi
 
@@ -100,6 +100,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
 
+<<<<<<< HEAD
 BOARD_KERNEL_CMDLINE += \
     androidboot.hardware=qcom \
     androidboot.init_fatal_reboot_target=recovery \
@@ -115,12 +116,23 @@ BOARD_KERNEL_CMDLINE += \
     service_locator.enable=1 \
     swiotlb=noforce
 
+# 6.12 turns unused clocks and power domains off before the display driver
+# takes over the bootloader's splash, which kills the panel
+BOARD_KERNEL_CMDLINE += clk_ignore_unused pd_ignore_unused
+
 # Kernel Pre-compiled
 TARGET_NO_KERNEL_OVERRIDE := true
 TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
 BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtb
 BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE_DIR)/01_dtbdump_Qualcomm_Technologies,_Inc._Yupik_SoC.dtb
+
+# Kernel - Modules: all of them go in the vendor ramdisk, loaded by first
+# stage init in the prebuilt's order. Keep them unstripped here: the GKI
+# modules Wi-Fi and Bluetooth need only load with their signatures.
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_PATH)/vendor_ramdisk/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_ramdisk/modules.load))
+BOARD_DO_NOT_STRIP_VENDOR_RAMDISK_MODULES := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
