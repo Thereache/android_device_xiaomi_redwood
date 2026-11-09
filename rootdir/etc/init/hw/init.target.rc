@@ -96,6 +96,12 @@ on post-fs
     # Set RLIMIT_MEMLOCK to 64KB
     setrlimit 8 65536 65536
 
+on post-fs && property:ro.hardware.audio.primary=*
+    # st-hal always dlopen()s audio.primary.lahaina.so to register its capture
+    # sessions. Point it at the audio HAL we actually use, otherwise LAB buffers
+    # never reach the HOTWORD stream and every hotword gets rejected.
+    mount none /vendor/lib/hw/audio.primary.${ro.hardware.audio.primary}.so /vendor/lib/hw/audio.primary.lahaina.so bind
+
 on late-fs
     wait_for_prop hwservicemanager.ready true
     mount_all --late
