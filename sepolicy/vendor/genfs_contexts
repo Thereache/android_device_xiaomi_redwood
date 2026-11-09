@@ -35,3 +35,5 @@ genfscon sysfs /devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw u:object_r:vendor_
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,gpubw u:object_r:vendor_sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,gpubw/devfreq u:object_r:vendor_sysfs_msm_subsys:s0
+# The camera HAL tells mi_thermald when the flash fires
+genfscon sysfs /devices/virtual/thermal/thermal_message/flash_state u:object_r:vendor_sysfs_thermal_flash:s0

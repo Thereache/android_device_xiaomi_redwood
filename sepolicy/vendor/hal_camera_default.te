@@ -23,3 +23,7 @@ add_hwservice(hal_camera_server, vendor_hal_cameraperf_hwservice)
 add_hwservice(hal_camera_server, vendor_hal_camerapostproc_xiaomi_hwservice)
 allow hal_camera_client vendor_hal_cameraperf_hwservice:hwservice_manager find;
 allow hal_camera_client vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+
+# flash_state, so mi_thermald knows the flash is in use
+allow hal_camera_default sysfs_thermal:dir search;
+allow hal_camera_default vendor_sysfs_thermal_flash:file rw_file_perms;
