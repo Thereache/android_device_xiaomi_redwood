@@ -192,13 +192,13 @@ PRODUCT_COPY_FILES += \
 
 # IFAA manager
 PRODUCT_PACKAGES += \
-     IFAAService
+    IFAAService
 
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
-	
+
 # ION
 $(call soong_config_set_bool,libion,legacy_impl,true)
 
@@ -216,26 +216,26 @@ PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 # Logging
- SPAMMY_LOG_TAGS := \
-     MiStcImpl \
-     SDM \
-     SDM-histogram \
-     SRE \
-     SensorService \
-     WifiHAL \
-     cnss-daemon \
-     libsensor-displayalgo \
-     libsensor-parseRGB \
-     libsensor-ssccalapi \
-     sensors \
-     vendor.qti.hardware.display.composer-service \
-     vendor.qti.bluetooth@1.0-ibs_handler \
-     vendor.qti.bluetooth@1.0-wake_lock
- 
- ifneq ($(TARGET_BUILD_VARIANT),eng)
- PRODUCT_VENDOR_PROPERTIES += \
-     $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=W)
- endif
+SPAMMY_LOG_TAGS := \
+    MiStcImpl \
+    SDM \
+    SDM-histogram \
+    SRE \
+    SensorService \
+    WifiHAL \
+    cnss-daemon \
+    libsensor-displayalgo \
+    libsensor-parseRGB \
+    libsensor-ssccalapi \
+    sensors \
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.bluetooth@1.0-ibs_handler \
+    vendor.qti.bluetooth@1.0-wake_lock
+
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_VENDOR_PROPERTIES += \
+    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=W)
+endif
 
 # Network
 PRODUCT_COPY_FILES += \
@@ -392,10 +392,10 @@ PRODUCT_COPY_FILES += \
 
 # TextClassifier
 PRODUCT_PACKAGES += \
-	libtextclassifier_annotator_en_model \
-	libtextclassifier_annotator_universal_model \
-	libtextclassifier_actions_suggestions_universal_model \
-	libtextclassifier_lang_id_model
+    libtextclassifier_annotator_en_model \
+    libtextclassifier_annotator_universal_model \
+    libtextclassifier_actions_suggestions_universal_model \
+    libtextclassifier_lang_id_model
 
 # Telephony
 PRODUCT_PACKAGES += \
