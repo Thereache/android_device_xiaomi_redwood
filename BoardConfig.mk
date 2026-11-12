@@ -243,6 +243,3 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Include proprietary files
 include vendor/xiaomi/redwood/BoardConfigVendor.mk
-
-# Include MindTheGapps
--include vendor/gapps/arm64/BoardConfigVendor.mk
