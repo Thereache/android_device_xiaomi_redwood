@@ -1,0 +1,5 @@
+# MIUI Camera probes things it works without: the data port manager's tcm
+# socket, the Soter HAL and the VPP HAL library under /vendor
+dontaudit platform_app_36 vendor_dpmtcm_socket:sock_file write;
+dontaudit platform_app_36 vendor_hal_soter_hwservice:hwservice_manager find;
+dontaudit platform_app_36 vendor_file:file read;
