@@ -338,10 +338,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sysconfig/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist.xml
 
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
-    RemovePackages
-
 # Rootdir
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/charger_fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/charger_fstab.qcom \
