@@ -122,6 +122,9 @@ on post-fs-data
     mkdir /data/vendor/audio/ultrasound 0770 audioserver audio
 
 on early-boot
+    # WLAN enable delay, must be set before wpss_boot (init.vendor.wlan.rc)
+    write /sys/kernel/icnss/wlan_en_delay 1000
+
     # Enable WLAN cold boot calibration
     write /sys/devices/platform/soc/b0000000.qcom,cnss-qca6490/fs_ready 1
 
@@ -176,6 +179,8 @@ on boot
     write /sys/block/sda/queue/wbt_lat_usec 75000
 
     # Set fingerprint related permissions
+    # DC dimming
+    chmod 0664 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq_enable
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable

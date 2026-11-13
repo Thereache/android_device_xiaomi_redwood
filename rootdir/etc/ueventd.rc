@@ -149,3 +149,26 @@ firmware_directories /vendor/firmware_mnt/image/
 
 # Battery
 /sys/class/qcom-battery     reverse_chg_mode            0644    system  system
+
+# Notification LED, for the QTI lights HAL
+/sys/class/leds/red      brightness   0640    system    system
+/sys/class/leds/red      trigger      0640    system    system
+/sys/class/leds/red      delay_on     0640    system    system
+/sys/class/leds/red      delay_off    0640    system    system
+/sys/class/leds/red      breath       0640    system    system
+/sys/class/leds/red      repeat       0640    system    system
+/sys/class/leds/red      hw_pattern   0640    system    system
+/sys/class/leds/green    brightness   0640    system    system
+/sys/class/leds/green    trigger      0640    system    system
+/sys/class/leds/green    delay_on     0640    system    system
+/sys/class/leds/green    delay_off    0640    system    system
+/sys/class/leds/green    breath       0640    system    system
+/sys/class/leds/green    repeat       0640    system    system
+/sys/class/leds/green    hw_pattern   0640    system    system
+/sys/class/leds/blue     brightness   0640    system    system
+/sys/class/leds/blue     trigger      0640    system    system
+/sys/class/leds/blue     delay_on     0640    system    system
+/sys/class/leds/blue     delay_off    0640    system    system
+/sys/class/leds/blue     breath       0640    system    system
+/sys/class/leds/blue     repeat       0640    system    system
+/sys/class/leds/blue     hw_pattern   0640    system    system
