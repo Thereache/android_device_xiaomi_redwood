@@ -130,6 +130,13 @@ on post-fs-data
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
 
+    # Create the perf HAL dirs, without them it can't save the default node
+    # values and fails every boost
+    mkdir /data/vendor/lm 0700 root root
+    mkdir /data/vendor/perfd 0770 root system
+    chmod 2770 /data/vendor/perfd
+    rm /data/vendor/perfd/default_values
+
     # Create directory used by media clients
     mkdir /data/vendor/media 0770 mediacodec media
 
