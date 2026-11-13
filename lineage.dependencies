@@ -9,8 +9,8 @@
   },
   {
     "remote": "github",
-    "repository": "suvojeet-sengupta/device_xiaomi_redwood-kernel-6.12",
-    "target_path": "device/xiaomi/redwood-kernel-6.12",
+    "repository": "suvojeet-sengupta/device_xiaomi_redwood-kernel-6.18",
+    "target_path": "device/xiaomi/redwood-kernel-6.18",
     "branch": "main"
   }
 ]

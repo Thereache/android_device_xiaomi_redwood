@@ -4,7 +4,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/redwood
-KERNEL_PATH := device/xiaomi/redwood-kernel-6.12
+KERNEL_PATH := device/xiaomi/redwood-kernel-6.18
 
 BOARD_VENDOR := xiaomi
 
@@ -114,9 +114,19 @@ BOARD_KERNEL_CMDLINE += \
 
 # The kernel's own bootargs (yupik.dtsi) already have swiotlb=0,
 # loop.max_part=7 and pcie_ports=compat, and the debug UART console is off
-# 6.12 turns unused clocks and power domains off before the display driver
-# takes over the bootloader's splash, which kills the panel
+# The kernel turns unused clocks and power domains off before the display
+# driver takes over the bootloader's splash, which kills the panel
 BOARD_KERNEL_CMDLINE += clk_ignore_unused pd_ignore_unused
+BOARD_KERNEL_CMDLINE += binder.impl=rust
+BOARD_KERNEL_CMDLINE += iommu.strict=1
+# Give deferred probes 30 s after the last driver registers, then sync the
+# suppliers whose consumers never get a driver here (the unused eMMC host
+# 7c4000.sdhci, the FM radio). Otherwise the interconnects keep their
+# boot-time votes and the SoC never reaches AOSS, CX or DDR sleep.
+BOARD_KERNEL_CMDLINE += deferred_probe_timeout=30 fw_devlink.sync_state=timeout
+# 6.18 checks netlink messages against allowxperm rules the 6.12-era vendor
+# policy doesn't have; fall back to nlmsg_read/nlmsg_write for those
+BOARD_KERNEL_CMDLINE += redwood.nlmsg_legacy
 
 # Kernel Pre-compiled
 TARGET_NO_KERNEL_OVERRIDE := true
@@ -126,8 +136,7 @@ BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtb
 BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE_DIR)/01_dtbdump_Qualcomm_Technologies,_Inc._Yupik_SoC.dtb
 
 # Kernel - Modules: all of them go in the vendor ramdisk, loaded by first
-# stage init in the prebuilt's order. Keep them unstripped here: the GKI
-# modules Wi-Fi and Bluetooth need only load with their signatures.
+# stage init in the prebuilt's order (its modules are already stripped).
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_PATH)/vendor_ramdisk/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_ramdisk/modules.load))
 BOARD_DO_NOT_STRIP_VENDOR_RAMDISK_MODULES := true
