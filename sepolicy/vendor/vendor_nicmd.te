@@ -1,0 +1,6 @@
+# Kernels from 6.13 on check each netlink message type against the generic
+# nlmsg permission (the netlink_xperm policy capability) instead of
+# nlmsg_read/nlmsg_write. netmgrd sets up the rmnet data links, addresses,
+# routes, rules and qdiscs over rtnetlink.
+allow vendor_nicmd self:netlink_route_socket nlmsg;
+allowxperm vendor_nicmd self:netlink_route_socket nlmsg { 0x10-0x6f };
