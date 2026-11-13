@@ -1,5 +1,6 @@
 # Bluetooth
 bluetooth.device_id.vendor_id=0x001D
+persist.bluetooth.disableinbandringing=true
 
 # Blur
 ro.launcher.blur.appLaunch=0
