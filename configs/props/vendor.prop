@@ -54,7 +54,7 @@ vendor.audio.feature.a2dp_offload.enable=true
 vendor.audio.feature.afe_proxy.enable=true
 vendor.audio.feature.anc_headset.enable=false
 vendor.audio.feature.audiozoom.enable=false
-vendor.audio.feature.battery_listener.enable=true
+vendor.audio.feature.battery_listener.enable=false
 vendor.audio.feature.compr_cap.enable=false
 vendor.audio.feature.compr_voip.enable=false
 vendor.audio.feature.compress_in.enable=true
@@ -259,7 +259,7 @@ ro.lmk.stall_limit_critical=40
 # Media
 debug.stagefright.c2inputsurface=-1
 media.stagefright.thumbnail.prefer_hw_codecs=true
-ro.config.vc_call_vol_steps=11
+ro.config.vc_call_vol_steps=5
 
 # NFC
 ro.vendor.nfc.repair=1
