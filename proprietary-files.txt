@@ -83,7 +83,6 @@ vendor/lib64/libadsprpc.so
 vendor/etc/audio/sku_yupik/audio_platform_info_yupikidp.xml
 vendor/etc/audio/sku_yupik/mixer_paths_overlay_dynamic.xml
 vendor/etc/audio/sku_yupik/mixer_paths_overlay_static.xml
-vendor/etc/audio/sku_yupik/mixer_paths_yupikidp.xml
 vendor/etc/audio/sku_yupik/sound_trigger_mixer_paths_yupikidp.xml
 vendor/etc/audio/sku_yupik/sound_trigger_platform_info.xml
 vendor/etc/audio_policy_engine_configuration.xml
@@ -108,7 +107,6 @@ vendor/lib/libssrec.so:odm/lib/libssrec.so;MODULE_SUFFIX=_odm
 vendor/lib/libvideoNS.so;DISABLE_CHECKELF
 
 # Audio firmware
-vendor/firmware/aw882xx_acf.bin
 
 # Audio FX modules
 system_ext/etc/permissions/audiosphere.xml
