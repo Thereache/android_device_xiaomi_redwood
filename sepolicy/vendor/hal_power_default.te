@@ -66,4 +66,12 @@ binder_call(hal_power_default, stats_service_server);
 allow hal_power_default hal_thermal_service:service_manager find;
 hal_client_domain(hal_power_default, hal_thermal)
 
+# ADPF hint sessions: set uclamp on the session threads
+typeattribute hal_power_default mlstrustedsubject;
 allow hal_power_default self:capability sys_nice;
+allow hal_power_default appdomain:process { getsched setsched };
+allow hal_power_default {
+  hal_graphics_composer_default
+  surfaceflinger
+  system_server
+}:process setsched;
