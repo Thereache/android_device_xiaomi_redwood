@@ -7,10 +7,3 @@ ro.vendor.qti.va_odm.support=1
 # SKU properties
 ro.product.property_source_order=odm,product,vendor,system_ext,system
 import /odm/etc/${ro.boot.hwc}_build.prop
-
-# Give GPU composition (blur) 6.5 ms before vsync instead of 4: with 4 the
-# app drawer dropped ~200 of ~580 frames at 120 Hz with blur on, with 6.5
-# 6-74. QTI's advanced phase offsets ignore this prop, so turn them off.
-debug.sf.enable_advanced_sf_phase_offset=0
-debug.sf.high_fps_early_gl_phase_offset_ns=-6500000
-debug.sf.high_fps_late_sf_phase_offset_ns=-4000000
