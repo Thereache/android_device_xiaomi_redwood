@@ -3,3 +3,7 @@ persist.vendor.btstack.enable.lpa=true
 
 # MTE
 persist.arm64.memtag.system_server=off
+
+# Blur, set here since vendor_init may not set these
+ro.launcher.blur.appLaunch=0
+ro.sf.blurs_are_expensive=1
