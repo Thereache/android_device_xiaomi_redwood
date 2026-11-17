@@ -115,7 +115,8 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/hw/camera.xiaomi.so': blob_fixup()
         .sig_replace('29 07 00 94', '1F 20 03 D5'),
     'vendor/lib64/hw/com.qti.chi.override.so' : blob_fixup()
-        .add_needed('libprocessgroup_shim.so'),
+        .add_needed('libprocessgroup_shim.so')
+        .binary_regex_replace(b'/system/lib64/libion.so', b'/vendor/lib64/libion.so'),
     'vendor/lib64/libmialgo_rfs.so': blob_fixup()
         .clear_symbol_version('remote_handle64_close')
         .clear_symbol_version('remote_handle64_invoke')
