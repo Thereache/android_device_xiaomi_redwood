@@ -751,7 +751,6 @@ vendor/etc/qdcm_calib_data_xiaomi_42_0d_0b_video_mode_dsc_dsi_panel.xml
 
 # Display postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
-vendor/bin/ppd
 vendor/bin/qdcmss
 vendor/etc/init/qdcmss.rc
 vendor/etc/init/vendor.display.color@1.0-service.rc
