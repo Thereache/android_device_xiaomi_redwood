@@ -1,18 +1,24 @@
 # Bluetooth
 bluetooth.device_id.vendor_id=0x001D
 persist.bluetooth.disableinbandringing=true
+bluetooth.server.automatic_turn_on=true
 
 # Blur
 ro.launcher.blur.appLaunch=0
 
-#eBPF
+# eBPF
 ro.bpf.kver_override=5.10.239
 
-# Enable Bluetooth AutoOn feature
-bluetooth.server.automatic_turn_on=true
+# Graphics
+ro.surface_flinger.game_default_frame_rate_override=120
 
 # IMS
 ro.telephony.block_binder_thread_on_incoming_calls=false
+
+# Radio
+ro.telephony.call_ring.multiple=false
+ro.telephony.default_cdma_sub=0
+ro.telephony.default_network=26,26
 
 # Seamless transfer
 sys.fflag.override.settings_seamless_transfer=true

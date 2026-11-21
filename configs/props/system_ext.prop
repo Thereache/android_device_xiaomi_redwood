@@ -1,5 +1,2 @@
-# Bluetooth
-persist.vendor.btstack.enable.lpa=true
-
 # MTE
 persist.arm64.memtag.system_server=off
