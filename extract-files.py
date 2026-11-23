@@ -81,12 +81,10 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/etc/camera/pureShot_parameter.xml', 'vendor/etc/camera/pureView_parameter.xml'): blob_fixup()
         .regex_replace(r'=(\d+)>', r'="\1">'),
     ('vendor/etc/media_codecs.xml', 'vendor/etc/media_codecs_lahaina.xml', 'vendor/etc/media_codecs_system_default.xml', 'vendor/etc/media_codecs_system_default_lahaina.xml', 'vendor/etc/media_codecs_system_default_yupik.xml'): blob_fixup()
-        .regex_replace('.+media_codecs_(c2_audio|dolby_audio|google_audio|google_c2|google_telephony|vendor_audio).+\n', '')
+        .regex_replace('.+media_codecs_(c2_audio|google_audio|google_c2|google_telephony|vendor_audio).+\n', '')
         .regex_replace(r'(?s)(<Settings.*?>)',r'\1\n        <Domain name="telephony" enabled="true" />'),
-    'vendor/etc/media_codecs_yupik_v1.xml': blob_fixup()
-        .regex_replace('.+media_codecs_(dolby_audio|with_dolby_yupik).+\n', ''),
-    'vendor/etc/media_codecs_lahaina_vendor.xml': blob_fixup()
-        .regex_replace('.+media_codecs_(dolby_audio|with_dolby_lahaina).+\n', ''),
+    ('vendor/etc/media_codecs_yupik_v1.xml', 'vendor/etc/media_codecs_lahaina_vendor.xml'): blob_fixup()
+        .regex_replace('.+media_codecs_with_dolby.+\n', ''),
     'vendor/etc/init/netmgrd.rc': blob_fixup()
         .regex_replace(r'    #Load rmnet_core driver\n(?:    exec [^\n]*modprobe[^\n]*\n)+',
                        '    # RMNET drivers are built into the kernel.\n')

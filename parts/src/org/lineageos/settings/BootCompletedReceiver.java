@@ -23,7 +23,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
+import android.hardware.display.DisplayManager;
 import android.util.Log;
+import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.appops.ForegroundServiceOps;
 import org.lineageos.settings.utils.FileUtils;
@@ -57,5 +59,11 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         ForegroundServiceOps.restore(context);
         RefreshUtils.initialize(context);
         ThermalUtils.startService(context);
+
+        // Override HDR types to enable Dolby Vision
+        final DisplayManager dm = context.getSystemService(DisplayManager.class);
+        dm.overrideHdrTypes(android.view.Display.DEFAULT_DISPLAY,
+                new int[] {HdrCapabilities.HDR_TYPE_DOLBY_VISION, HdrCapabilities.HDR_TYPE_HDR10,
+                        HdrCapabilities.HDR_TYPE_HLG, HdrCapabilities.HDR_TYPE_HDR10_PLUS});
     }        
 }
