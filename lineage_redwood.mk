@@ -27,3 +27,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildFlavor=redwood_global-user \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
+
+# Flags
+TARGET_INCLUDES_OEM_App := true
+TARGET_INCLUDES_DolbyVision := true

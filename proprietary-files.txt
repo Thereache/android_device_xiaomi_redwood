@@ -1080,7 +1080,6 @@ product/media/audio/ringtones/ToyRobot.ogg
 product/media/audio/ringtones/Vigor.ogg
 
 # Media configs
-vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 vendor/etc/media_codecs.xml
 vendor/etc/media_codecs_lahaina.xml
 vendor/etc/media_codecs_lahaina_vendor.xml
