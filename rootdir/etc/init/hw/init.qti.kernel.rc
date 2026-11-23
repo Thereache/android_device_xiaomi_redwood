@@ -66,6 +66,14 @@ service kernel-post-boot /vendor/bin/sh /vendor/bin/init.kernel.post_boot-yupik.
 on property:sys.boot_completed=1
     write /proc/sys/vm/page-cluster 0
 
+    # Keep RCU grace periods from waking every CPU during normal use.
+    write /sys/kernel/rcu_expedited 0
+    # Give the foreground app latency-sensitive scheduling treatment.
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
+    # Limit background work so it cannot compete with display composition.
+    write /dev/cpuctl/background/cpu.uclamp.max 50
+    write /dev/cpuctl/system-background/cpu.uclamp.max 50
+
     start kernel-post-boot
 
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
