@@ -4,7 +4,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/redwood
-KERNEL_PATH := device/xiaomi/redwood-kernel
+KERNEL_PATH := device/xiaomi/redwood-kernel-6.18
 
 BOARD_VENDOR := xiaomi
 
@@ -32,7 +32,7 @@ TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a76
+TARGET_2ND_CPU_VARIANT := cortex-a55
 
 # ART
 ART_BUILD_TARGET_NDEBUG := true
@@ -99,21 +99,27 @@ BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
+BOARD_RAMDISK_USE_LZ4 := true
 
-BOARD_KERNEL_CMDLINE += \
-    androidboot.hardware=qcom \
-    androidboot.init_fatal_reboot_target=recovery \
-    androidboot.usbcontroller=a600000.dwc3 \
-    cgroup.memory=nokmem,nosocket \
-    firmware_class.path=/vendor/firmware \
-    iptable_raw.raw_before_defrag=1 \
-    ip6table_raw.raw_before_defrag=1 \
-    kpti=off \
-    loop.max_part=7 \
-    msm_rtb.filter=0x237 \
-    pcie_ports=compat \
-    service_locator.enable=1 \
-    swiotlb=noforce
+# The kernel's own bootargs already cover swiotlb, loop.max_part and
+# pcie_ports; unused clocks and power domains are ignored to keep the
+# bootloader splash alive.
+BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
+BOARD_KERNEL_CMDLINE += androidboot.memcg=1
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
+BOARD_KERNEL_CMDLINE += cgroup.memory=nokmem,nosocket
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
+BOARD_KERNEL_CMDLINE += service_locator.enable=1
+BOARD_KERNEL_CMDLINE += iptable_raw.raw_before_defrag=1
+BOARD_KERNEL_CMDLINE += ip6table_raw.raw_before_defrag=1
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
+BOARD_KERNEL_CMDLINE += clk_ignore_unused pd_ignore_unused
+BOARD_KERNEL_CMDLINE += binder.impl=rust
+BOARD_KERNEL_CMDLINE += iommu.strict=1
+BOARD_KERNEL_CMDLINE += deferred_probe_timeout=30 fw_devlink.sync_state=timeout
+# 6.18 checks netlink messages against allowxperm rules that the vendor
+# policy may not have; use the legacy nlmsg_read/nlmsg_write checks.
+BOARD_KERNEL_CMDLINE += redwood.nlmsg_legacy
 
 # Kernel Pre-compiled
 TARGET_NO_KERNEL_OVERRIDE := true
@@ -121,6 +127,11 @@ TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
 BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtb
 BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE_DIR)/01_dtbdump_Qualcomm_Technologies,_Inc._Yupik_SoC.dtb
+
+# Load the prebuilt's vendor ramdisk modules in its own order.
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_PATH)/vendor_ramdisk/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_ramdisk/modules.load))
+BOARD_DO_NOT_STRIP_VENDOR_RAMDISK_MODULES := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)

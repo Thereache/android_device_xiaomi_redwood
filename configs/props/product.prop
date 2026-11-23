@@ -4,14 +4,16 @@ bluetooth.device_id.vendor_id=0x001D
 # Blur
 ro.launcher.blur.appLaunch=0
 
-#eBPF
-ro.bpf.kver_override=5.10.239
-
 # Enable Bluetooth AutoOn feature
 bluetooth.server.automatic_turn_on=true
 
 # IMS
 ro.telephony.block_binder_thread_on_incoming_calls=false
+
+# LMK tuning
+ro.lmk.swap_free_low_percentage=10
+ro.lmk.swap_compression_ratio=3
+ro.lmk.lowmem_min_oom_score=951
 
 Seamless transfer
 sys.fflag.override.settings_seamless_transfer=true

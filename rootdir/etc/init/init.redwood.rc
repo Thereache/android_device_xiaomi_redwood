@@ -23,3 +23,6 @@ on property:ro.boot.product.hardware.sku=redwood
     enable vendor.nfc_hal_service
     enable qti_esepowermanager_service_1_1
     enable secureelement-hal_1_2
+
+on boot
+    stop loc_sys_service

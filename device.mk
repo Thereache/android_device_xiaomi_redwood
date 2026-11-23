@@ -215,7 +215,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
 
 # Kernel
-LOCAL_KERNEL := device/xiaomi/redwood-kernel/Image
+LOCAL_KERNEL := device/xiaomi/redwood-kernel-6.18/Image
 PRODUCT_COPY_FILES += \
 	$(LOCAL_KERNEL):kernel
 
@@ -362,6 +362,10 @@ $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/etc/init/*.rc),\
     $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/$(notdir $f)))
 $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/bin/*.sh),\
     $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/bin/$(notdir $f)))
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.redwood.mglru.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.redwood.mglru.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.redwood.panic.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.redwood.panic.rc
 
 # Sensors
 PRODUCT_PACKAGES += \

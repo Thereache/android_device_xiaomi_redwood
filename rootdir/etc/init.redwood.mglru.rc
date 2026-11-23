@@ -1,0 +1,12 @@
+# Multi-gen LRU. Only system init may write lru_gen/enabled.
+on boot
+    write /sys/kernel/mm/lru_gen/enabled 3
+
+on property:persist.device_config.mglru_native.lru_gen_config=none
+    write /sys/kernel/mm/lru_gen/enabled 0
+
+on property:persist.device_config.mglru_native.lru_gen_config=core
+    write /sys/kernel/mm/lru_gen/enabled 1
+
+on property:persist.device_config.mglru_native.lru_gen_config=core_and_mm_walk
+    write /sys/kernel/mm/lru_gen/enabled 3
