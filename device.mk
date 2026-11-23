@@ -234,6 +234,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
 
 # Kernel
+PRODUCT_ENABLE_UFFD_GC := true
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 LOCAL_KERNEL := device/xiaomi/redwood-kernel-6.18/Image
 PRODUCT_COPY_FILES += \
 	$(LOCAL_KERNEL):kernel
