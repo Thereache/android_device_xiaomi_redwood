@@ -7,6 +7,9 @@ vendor.bluetooth.soc=hastings
 # CNE
 persist.vendor.cne.feature=1
 
+# Audio service timeout
+audio.service.client_wait_ms=10000
+
 #  Camera
 vendor.camera.aux.packagelist=org.lineageos.aperture,com.android.camera,com.google.camera,com.snapchat.android
 
