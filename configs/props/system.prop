@@ -12,6 +12,8 @@ vendor.camera.aux.packagelist=org.lineageos.aperture,com.android.camera,com.goog
 
 # Disable Skia tracing by default
 debug.hwui.skia_atrace_enabled=false
+debug.hwui.skia_tracing_enabled=false
+debug.hwui.skia_use_perfetto_track_events=false
 
 # Fling velocities
 ro.min.fling_velocity=70
