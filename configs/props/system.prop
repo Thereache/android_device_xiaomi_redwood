@@ -1,6 +1,9 @@
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
+# Camera
+ro.camerax.extensions.enabled=true
+
 # Disable Skia tracing by default
 debug.hwui.skia_atrace_enabled=false
 
