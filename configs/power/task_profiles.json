@@ -115,6 +115,10 @@
       ]
     },
     {
+      "Name": "SCHED_QOS_NONE",
+      "Actions": []
+    },
+    {
       "Name": "AudioAppPerformance",
       "Actions" : [
         {
@@ -547,6 +551,14 @@
     {
       "Name": "CPUSET_SP_RESTRICTED",
       "Profiles": [ "ServiceCapacityRestricted", "TimerSlackNormal" ]
+    },
+    {
+      "Name": "SCHED_QOS_SENSITIVE_EXTREME",
+      "Profiles": [ "MaxPerformance", "ProcessCapacityMax" ]
+    },
+    {
+      "Name": "SCHED_QOS_SENSITIVE_STANDARD",
+      "Profiles": [ "ProcessCapacityMax" ]
     }
   ]
 }

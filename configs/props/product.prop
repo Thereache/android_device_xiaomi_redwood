@@ -6,9 +6,6 @@ bluetooth.server.automatic_turn_on=true
 # Blur
 ro.launcher.blur.appLaunch=0
 
-# eBPF
-ro.bpf.kver_override=5.10.239
-
 # Graphics
 ro.surface_flinger.game_default_frame_rate_override=120
 
@@ -21,4 +18,9 @@ ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=26,26
 
 # Seamless transfer
-sys.fflag.override.settings_seamless_transfer=true
+Seamless transfer
+
+# LMK tuning
+ro.lmk.swap_free_low_percentage=10
+ro.lmk.swap_compression_ratio=3
+ro.lmk.lowmem_min_oom_score=951

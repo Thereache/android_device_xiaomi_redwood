@@ -1,0 +1,4 @@
+# Android init enables panic_on_oops; keep it off for 6.18 so an oops
+# produces dmesg/pstore data instead of a hard reset.
+on init
+    write /proc/sys/kernel/panic_on_oops 0
