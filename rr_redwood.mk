@@ -7,14 +7,14 @@
 $(call inherit-product, device/xiaomi/redwood/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/rr/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_BRAND := POCO
 PRODUCT_DEVICE := redwood
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := 22101320G
-PRODUCT_NAME := lineage_redwood
+PRODUCT_NAME := rr_redwood
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
@@ -31,3 +31,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # Flags
 TARGET_INCLUDES_OEM_App := true
 TARGET_INCLUDES_DolbyVision := true
+RR_MAINTAINER := Thereache
+WITH_GMS := true
